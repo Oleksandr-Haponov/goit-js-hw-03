@@ -1,18 +1,17 @@
 function makeArray(firstArray, secondArray, maxLength) {
-  const result = [];
-  const firstArrayLength = firstArray.length;
-  const secondArrayLength = secondArray.length;
-
-  for (let i = 0; i < maxLength; i++) {
-    if (i < firstArrayLength) {
-      result.push(firstArray[i]);
+    const result = [];
+    for (let i = 0; i < firstArray.length; i++) {
+      if (result.length < maxLength) {
+        result.push(firstArray[i]);
+      }
     }
-    if (i < secondArrayLength) {
-      result.push(secondArray[i]);
+    for (let i = 0; i < secondArray.length; i++) {
+      if (result.length < maxLength) {
+        result.push(secondArray[i]);
+      }
     }
+    return result;
   }
-  return result;
-}
 console.log(makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3)); // ["Mango", "Poly", "Ajax"]
 console.log(makeArray(["Mango", "Poly", "Houston"], ["Ajax", "Chelsea"], 4)); // ["Mango", "Poly", "Houston", "Ajax"]
 console.log(makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3)); // ["Mango", "Ajax", "Chelsea"]
